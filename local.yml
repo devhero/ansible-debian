@@ -1,7 +1,10 @@
 - hosts: localhost
   become: true
   tasks:
+  - name: Upgrade the OS (apt-get dist-upgrade)
+    apt:
+      upgrade: dist
   - name: Install packages
-    apt: name={{item}}
-    with_items:
+    apt:
+      pkg:
       - docker
